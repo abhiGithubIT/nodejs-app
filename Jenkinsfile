@@ -10,7 +10,7 @@ pipeline {
         REMOTE_HOST = '13.204.68.193' // Replace with your server's IP or hostname
         REMOTE_USER = 'ec2-user'
         REMOTE_PATH = '/home/ec2-user/nodejs-app'
-        SSH_CREDENTIALS = 'sshagent(['nodejs'])'
+        SSH_CREDENTIALS = 'NodeServerSSHKey'
     }
 
     stages {
