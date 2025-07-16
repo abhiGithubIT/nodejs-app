@@ -3,7 +3,7 @@ pipeline {
     agent any
 
     tools {
-        nodejs 'Node-20.19.4'
+        nodejs 'Node-20.19.3'
     }
 
     environment {
