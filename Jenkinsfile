@@ -30,7 +30,7 @@ pipeline {
 
         stage('Transfer to Remote Server') {
             steps {
-                sshagent([env.sshagent(['nodejs'])]) {
+                sshagent(['nodejs']) {
                     sh '''
                         ssh -o StrictHostKeyChecking=no  $REMOTE_USER@$REMOTE_HOST "mkdir -p $REMOTE_PATH"
                         rsync -avz --exclude=node_modules --exclude=.git ./ $REMOTE_USER@$REMOTE_HOST:$REMOTE_PATH/
@@ -41,7 +41,7 @@ pipeline {
 
         stage('Install & Deploy using Local PM2') {
             steps {
-                sshagent([env.SSH_CREDENTIALS]) {
+                sshagent(['nodejs']) {
                     sh '''
                         ssh $REMOTE_USER@$REMOTE_HOST "
                             cd $REMOTE_PATH &&
